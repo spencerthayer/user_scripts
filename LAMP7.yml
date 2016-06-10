@@ -6,7 +6,7 @@ packages:
   - apache2-utils
   - php7-mysql
   - mysql-server
-  - libapache2-mod-php5
+  - libapache2-mod-php7
   - php7-mcrypt
   - php7-gd
   - php7-curl
@@ -18,13 +18,6 @@ write_files:
       AuthName "Restricted Files"
       AuthUserFile /etc/phpmyadmin/.htpasswd
       Require valid-user
-apt_sources:
-  # Enable Docker repository
-  - source: deb https://apt.dockerproject.org/repo ubuntu-vivid main
-    keyid: 58118E89F3A912897C070ADBF76221572C52609D
-    filename: docker.list
-packages:
-  - docker-engine
 runcmd:
   # Configure Apache
   - php7enmod mcrypt
